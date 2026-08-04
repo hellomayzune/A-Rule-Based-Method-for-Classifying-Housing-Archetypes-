@@ -1,6 +1,5 @@
 <p align="left">
 • <a href="https://github.com/hellomayzune"><strong>GitHub</strong></a> •
-<a href="https://github.com/hellomayzune/Imperial-College-Capstone-Black-box-Optimisation"><strong>Repositories</strong></a> •
 <a href="https://orcid.org/0000-0003-0282-2633"><strong>ORCID</strong></a> •
 <a href="https://scholar.google.com/citations?user=LmP8B_4AAAAJ&hl=en"><strong>Google Scholar</strong></a> •
 <a href="https://www.researchgate.net/profile/May-Zune"><strong>ResearchGate</strong></a> •
