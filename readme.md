@@ -32,6 +32,7 @@ This work offers a fast, transparent, cross-dataset way to bucket large numbers 
     - [Limitations](#️-limitations)
 - [Example Python codes](#-example-python-codes)
 
+![image]([https://github.com/user-attachments/assets/your-image-id.png](https://github.com/hellomayzune/A-Rule-Based-Method-for-Classifying-Housing-Archetypes-/blob/main/Rule-based-archetypes.png))
 
 # 📌 Project information
 -   *Project Title*: Regional Retrofit, Net-Zero Aspirations, and their Whole Life Carbon Burden
