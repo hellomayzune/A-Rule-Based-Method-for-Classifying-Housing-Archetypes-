@@ -32,18 +32,22 @@ This work offers a fast, transparent, cross-dataset way to bucket large numbers 
     - [Limitations](#️-limitations)
 - [Example Python codes](#-example-python-codes)
 
-![Method](https://github.com/hellomayzune/A-Rule-Based-Method-for-Classifying-Housing-Archetypes-/blob/main/Rule-based-archetypes.png)
+![Method](https://raw.githubusercontent.com/hellomayzune/A-Rule-Based-Method-for-Classifying-Housing-Archetypes-/main/Rule-based-archetypes.png)
 
 # 📌 Project information
 -   *Project Title*: Regional Retrofit, Net-Zero Aspirations, and their Whole Life Carbon Burden
 - *Notebook Author*: May Zune
-- *Funder*: This research was financially supported by Research England through the South Yorkshire Sustainability Centre. DDT and HA also acknowledge support from EPSRC through the BuildZero research program (EP/Y530578/1)
+- *Funder*: This research was financially supported by Research England through the South Yorkshire Sustainability Centre. DDT (Densley Tingley, D.) and HA (Arbabi, H.) also acknowledge support from EPSRC through the BuildZero research program (EP/Y530578/1)
 - *Project website*: [South Yorkshire Sustainability Centre](https://www.sysustainabilitycentre.org)
 
 
 ## 📚 Methodological information and source database
 
-This work is currently under peer review. The citation and publication details will be updated once the manuscript is published. In the meantime, methodological information is available in:
+Methodological information is available in:
+
+> Zune, M., Arbabi, H., Densley Tingley, D. (Published 27 August 2026). Regional Retrofit, Net-Zero Aspirations, and their Whole Life Carbon Burden. Available at Environmental Research: Infrastructure and Sustainability, (2026);6(3):035015. doi: [10.1088/2634-4505/ae9984](https://iopscience.iop.org/article/10.1088/2634-4505/ae9984)
+
+and
 
 > Zune, M., Arbabi, H., Densley Tingley, D. (November 26, 2025). Regional Retrofit, Net-Zero Aspirations, and their Whole Life Carbon Burden. Available at SSRN: https://ssrn.com/abstract=5909647. doi: [10.2139/ssrn.5909647](http://dx.doi.org/10.2139/ssrn.5909647)
 
@@ -56,10 +60,10 @@ The source database of this work can be found in:
 
 ## 🗂️ Database information
 - Source Data: EPC and Verisk
-- Format of database: *.csv*, *.xlsx* and *.ipynb*
+- Format of database: `.csv`, `.xlsx` and `.ipynb`
 - Language: English
 - Required data space: Less than 150 MB
-- README file date created: 14 May 2026.
+- README file date created: 2026 May 14.
 - README file date modified: To update 
 - Programming language: The code is written in `Python` using `Pandas` version 2.2.3.
 - License: *MIT open source*
@@ -80,13 +84,13 @@ The source database of this work can be found in:
 | **B-DT** | Large and complex footprint detached bungalow |
 | **DT-V** | Large and complex footprint detached house (e.g., Victorian design style) |
 | **DT-R** | Small and rectangular footprint detached house |
-| **DT-L** | Large and complex footprint detached house (e.g., fewer than two storeys) |
-| **T-GM** | Large and complex footprint mid-terrace (e.g., Georgian design style) |
-| **T-GE** | Large and complex footprint end-terrace (e.g., Georgian design style) |
-| **T-VM** | Small and complex footprint mid-terrace (e.g., Victorian design style) |
-| **T-VE** | Small and complex footprint end-terrace (e.g., Victorian design style) |
-| **T-RM** | Small and rectangular footprint mid-terrace |
-| **T-RE** | Small and rectangular footprint end-terrace |
+| **DT-L** | Large and complex footprint detached house (e.g., 1–2 storeys) |
+| **TG-M** | Large and complex footprint mid-terrace (e.g., Georgian design style) |
+| **TG-E** | Large and complex footprint end-terrace (e.g., Georgian design style) |
+| **TV-M** | Small and complex footprint mid-terrace (e.g., Victorian design style) |
+| **TV-E** | Small and complex footprint end-terrace (e.g., Victorian design style) |
+| **TR-M** | Small and rectangular footprint mid-terrace |
+| **TR-E** | Small and rectangular footprint end-terrace |
 
 
 ## 🎯 Thresholds
@@ -104,7 +108,7 @@ The source database of this work can be found in:
 
 ## 🔍 Data differences
 - File name: **EPC_SouthYorkshire_Clean_202604.csv** 
-    - This file is created from the EPC database for South Yorkshire. The shape of the original database is *528925, 94*
+    - This file is created from the EPC database for South Yorkshire. The shape of the original database is *(528,925 rows, 94 columns)*
     - Data fields used in the *SY_domestic_EPC_Archetypes_ERIS.ipynb*
         - certificate_number (to link with original EPC database)
         - property_type
@@ -115,7 +119,7 @@ The source database of this work can be found in:
         - total_floor_area
 
 - File name: **Verisk_SouthYorkshire_Correct_premise_floor_count.csv** 
-    - This file is exported from the Verisk database for South Yorkshire. The shape of the original database is *614589, 32*
+    - This file is exported from the Verisk database for South Yorkshire. The shape of the original database is *(614,589 rows, 32 columns)*
     - Data fields used in the *SY_domestic_Verisk_Archetype_ERIS.ipynb*
         - fid (to link with original GIS database)
         - id (to link with original GIS database)
@@ -171,16 +175,16 @@ The source database of this work can be found in:
 - File name: **SY_domestic_EPC_Archetypes_ERIS.ipynb** 
 - Import file: **EPC_SouthYorkshire_Clean_202604.csv** 
 
-- Example coldes for Bungalow
-```js
+- Example codes for Bungalow
+```python
 // Dataframe for Bungalow Only
 dfb = dfALL[(dfALL.property_type == "Bungalow")]
 // Define archetype codes
 dfb['Archetype'] = np.where(dfb['built_form'] == 'Detached', 'B-DT', 'B-SD')
 ```
 
-- Example coldes for Detached Houses
-```js
+- Example codes for Detached Houses
+```python
 // Dataframe for House Only
 df = dfALL[(dfALL.property_type == "House")]
 // Select "Detached" under Houses
@@ -199,9 +203,9 @@ for i, N_flat_storey_count in enumerate(flat_storey_count_list):
     print(f"{i}: {N_flat_storey_count} ({count_FSC} records)")
 ```
 
-- Example coldes for Semi-detached Houses
+- Example codes for Semi-detached Houses
 
-```js
+```python
 // Select "Semi-Detached" under Houses
 dfs = df[(df.built_form == "Semi-Detached")]
 cond_SD = [
@@ -213,9 +217,9 @@ choice_SD = ['SD-R', 'SD-S', 'SD-V']
 dfs['Archetype'] = np.select(cond_SD, choice_SD, default='Unknown')
 ```
 
-- Example coldes for Terrace Houses
+- Example codes for End-Terrace Houses
 
-```js
+```python
 // Select "End-Terrace" under Houses
 dfe = df[(df.built_form == "End-Terrace")]
 cond_TE = [
@@ -227,9 +231,9 @@ choice_TE = ['TR-E', 'TV-E', 'TG-E']
 dfe['Archetype'] = np.select(cond_TE, choice_TE, default='Unknown')
 ```
 
-- Example coldes for Terrace Houses
+- Example codes for Mid-Terrace Houses
 
-```js
+```python
 // Select "Mid-Terrace" under Houses
 dfm = df[(df.built_form == "Mid-Terrace")]
 cond_TM = [
